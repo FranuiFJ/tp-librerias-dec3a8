@@ -1,11 +1,12 @@
-#include "dec3a8.h"
+#include <Arduino.h>//<> librerias comunes
+#include "dec3a8.h"//""librerias creadas por el usuario
 int valor, i = 0;
 void dec3a8_init()
 {
-    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
-    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;//habilito clk
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;//habilito clk
 
-    GPIOB->CRL |= 0x11111111; 
+    GPIOB->CRL |= 0x11111111; //declaro los pines como salidas push pull
 }
 void dec3a8(int I0, int I1, int I2)
 {
